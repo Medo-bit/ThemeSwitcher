@@ -8,6 +8,6 @@ A C#-based application that dynamically adjusts the theme of Windows 10/11 betwe
 
 ## 🚀 Key Features
 * **Smart Sync:** Automatically toggles themes based on local solar times.
-* **Hybrid & Efficient:** Fetches data only once at the start of the day (or via manual refresh), then operates 100% offline.
+* **Hybrid Operations:** Fetches data only once at the start of the day (or via manual refresh), then operates 100% offline.
 * **Minimalist UI:** Modern context menu and system tray integration.
 * **Resource Efficient:** Zero impact on system performance.
