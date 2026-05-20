@@ -5,7 +5,7 @@
 ![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-🌐 [English Version](README.md)
+🌐 [النسخة الانجليزية](README.md)
 
 أداة ويندوز فائقة السرعة ومستقلة بذاتها (Self-Contained)، تقوم بتبديل ثيم النظام بسلاسة بين الوضعين الفاتح (Light) والمظلم (Dark) بناءً على أوقات الشروق والغروب المحلية الدقيقة.
 
