@@ -5,7 +5,7 @@
 ![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-🌐[Arabic Version](README.ar.md)
+🌐 [Arabic Version](README.ar.md)
 
 A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise local sunrise and sunset times. 
 
