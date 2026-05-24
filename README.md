@@ -1,3 +1,16 @@
+> [!IMPORTANT]
+>If you are experiencing issues with automatic updates, you may be using an outdated version of the app. Please download the **latest version** directly from the [Releases](https://github.com/Medo-bit/ThemeSwitcher/releases/latest) page.
+>
+> Older versions contained a bug that prevented them from checking for updates automatically, requiring a manual check. Upgrading to the latest version completely resolves this issue and activates the secure encryption system (RSA).
+
+
+### 🔔 How to Get Notified for Future Updates?
+To ensure you receive an immediate email notification from GitHub whenever a new update or security patch is released, please enable the repository tracking feature:
+1. Scroll to the **very top of this page**.
+2. Click the **Watch** button (with the eye icon 👁️).
+3. Select **Custom**, check the **Releases** box, and click **Apply**.
+4. *(Optional)* Click the ⭐ **Star** button to support the project^_^
+---
 # ThemeSwitcher
 
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet)
