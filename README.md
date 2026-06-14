@@ -27,6 +27,7 @@ Engineered for performance and elegance, ThemeSwitcher integrates deeply with Wi
 ## 🚀 Key Features
 
 * **🌅 Smart Solar Sync & Hybrid Operations:** Automatically calculates your local solar times. It fetches data only once at the start of the day and operates 100% offline via smart caching.
+* **🛡️ Theme State Enforcement & Anti-Tampering:** Automatically locks and secures your system's registry theme keys. It instantly rolls back any unauthorized external modifications or tweaks, with a flexible suspend option via the system tray icon, just click on "Disable ThemeSwitcher" or close it.
 * **📦 Fully Self-Contained (.NET 10):** No need to install external runtimes! Everything the app needs is built right in. Just download and run.
 * **⚡ Zero-Latency UI & GPU Acceleration:** Features a pre-rendered system tray menu with hardware-accelerated animations (Mica/Acrylic), adapting flawlessly to high refresh rate monitors (120Hz/144Hz+).
 * **🧠 Hyper-Optimized Performance:** Aggressively manages memory and utilizes native Windows APIs, resulting in near-zero CPU usage, minimal RAM footprint, and extreme battery efficiency.
