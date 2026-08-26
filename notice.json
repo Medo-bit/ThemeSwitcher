@@ -1,5 +1,5 @@
 {
-  "notice_enabled": false,
+  "notice_enabled": true,
   "notice_id": "maint_gps_2026_09",
   "affected_versions": [ "4.1.0", "4.0.0" ],
   "title": "[AR]صيانة مجدولة لخدمة المواقيت[/AR][EN]Scheduled Maintenance for Sun Times[/EN]",
