@@ -16,7 +16,6 @@
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet)
 ![C#](https://img.shields.io/badge/Language-C%23-blue?style=for-the-badge&logo=csharp)
 ![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 🌐 [النسخة الانجليزية](README.md)
 
