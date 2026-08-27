@@ -1,11 +1,11 @@
 {
-  "notice_enabled": false,
-  "notice_id": "maint_gps_2026_09",
-  "affected_versions": [ "4.1.0", "4.0.0" ],
-  "title": "[AR]صيانة مجدولة لخدمة المواقيت[/AR][EN]Scheduled Maintenance for Sun Times[/EN]",
-  "message": "[AR]نقوم حالياً بترقية خوادم الإحداثيات لزيادة الدقة. قد تلاحظ تأخيراً مؤقتاً في جلب موقعك التلقائي.[/AR][EN]We are upgrading coordinates servers for higher precision. You might experience temporary delays with auto-location.[/EN]",
+  "notice_enabled": true,
+  "notice_id": "test_balloon_01",
+  "affected_versions": [ "4.1.0" ],
+  "title": "[AR]صيانة مجدولة لخدمة المواقيت[/AR][EN]Scheduled Maintenance[/EN]",
+  "message": "[AR]نقوم حالياً بترقية الخوادم.[/AR][EN]Upgrading servers.[/EN]",
   "severity": "Warning",
   "is_dismissible": true,
-  "action_button_text": "[AR]متابعة حالة الخدمة[/AR][EN]Check Status[/EN]",
+  "action_button_text": "[AR]متابعة الحالة[/AR][EN]Check Status[/EN]",
   "action_button_url": "https://github.com/Medo-bit/ThemeSwitcher/issues"
 }
