@@ -1,16 +1,3 @@
-> [!IMPORTANT]
->If you are experiencing issues with automatic updates, you may be using an outdated version of the app. Please download the **latest version** directly from the [Releases](https://github.com/Medo-bit/ThemeSwitcher/releases/latest) page.
->
-> Older versions contained a bug that prevented them from checking for updates automatically, requiring a manual check. Upgrading to the latest version completely resolves this issue and activates the secure encryption system (RSA).
-
-
-### 🔔 How to Get Notified for Future Updates?
-To ensure you receive an immediate email notification from GitHub whenever a new update or security patch is released, please enable the repository tracking feature:
-1. Scroll to the **very top of this page**.
-2. Click the **Watch** button (with the eye icon 👁️).
-3. Select **Custom**, check the **Releases** box, and click **Apply**.
-4. *(Optional)* Click the ⭐ **Star** button to support the project^_^
----
 # ThemeSwitcher
 
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet)
@@ -19,19 +6,21 @@ To ensure you receive an immediate email notification from GitHub whenever a new
 
 🌐 [Arabic Version](README.ar.md)
 
-A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise local sunrise and sunset times. 
+A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise local sunrise and sunset times.
 
 Engineered for performance and elegance, ThemeSwitcher integrates deeply with Windows to provide a native-like experience without the bloat.
 
 ## 🚀 Key Features
 
-* **🌅 Smart Solar Sync & Hybrid Operations:** Automatically calculates your local solar times. It fetches data only once at the start of the day and operates 100% offline via smart caching.
-* **🛡️ Theme State Enforcement & Anti-Tampering:** Automatically locks and secures your system's registry theme keys. It instantly rolls back any unauthorized external modifications or tweaks, with a flexible suspend option via the system tray icon, just click on "Disable ThemeSwitcher" or close it.
-* **📦 Fully Self-Contained (.NET 10):** No need to install external runtimes! Everything the app needs is built right in. Just download and run.
-* **⚡ Zero-Latency UI & GPU Acceleration:** Features a pre-rendered system tray menu with hardware-accelerated animations (Mica/Acrylic), adapting flawlessly to high refresh rate monitors (120Hz/144Hz+).
-* **🧠 Hyper-Optimized Performance:** Aggressively manages memory and utilizes native Windows APIs, resulting in near-zero CPU usage, minimal RAM footprint, and extreme battery efficiency.
-* **🔄 Instant & Silent Boot:** Applies your correct theme instantly upon system startup, completely eliminating screen flickering and delays.
-* **📡 Smart Network Detection:** Built-in NCSI integration detects internet connectivity changes instantly to update data without freezing the UI.
+* **🌅 Smart Solar Sync & Offline-First:** Automatically calculates precise local sunrise and sunset times. It synchronizes solar data once per day and operates 100% offline via encrypted, resilient local caching.
+* **⚡ Instant Theme Engine (FastSwitch):** Switches instantly upon system startup, sleep wake, or screen unlock—minimizing screen flicker to the absolute minimum for an ultra-smooth transition, applying the target theme before the Windows desktop even finishes loading.
+* **🖼️ 4K Wallpaper Gallery & Studio:** Discover, customize, and apply stunning high-resolution wallpapers tailored for Light and Dark modes, featuring instant (0ms) local browsing and atomic multi-monitor synchronization.
+* **🔋 True Zero-Impact (0% CPU on Idle):** Built with an event-driven architecture that drops CPU usage strictly to 0% during idle, preserving battery life and leaving system resources completely untouched.
+* **🛡️ Theme State Enforcement & Anti-Tampering:** Safeguards your system registry theme keys, rolling back unauthorized external overrides while offering instant suspension right from the tray menu.
+* **📦 Fully Self-Contained (.NET 10):** Ready to run right out of the box with zero runtime dependencies. Everything the app needs is built-in—just download and launch.
+* **⚡ Zero-Latency Fluent UI:** A hardware-accelerated tray interface built with modern Windows materials (Mica/Acrylic), flawlessly tuned for high-refresh-rate displays (120Hz/144Hz+).
+* **📶 Resilient Network & Auto-Recovery:** Integrates smart three-way network sensing (NCSI/Checkpoints) to distinguish real internet access from local routing, safely scheduling background tasks without UI freezes.
+* **🔄 Built-in In-App Updater:** Check and install new releases seamlessly from inside the app without opening an external browser.
 
 ## 💻 System Requirements
 * **OS:** Windows 10 (Version 2004 or later) / Windows 11
