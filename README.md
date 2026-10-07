@@ -24,7 +24,7 @@ Engineered for performance and visual elegance, ThemeSwitcher integrates directl
 
 * **🌅 Smart Solar Sync & Offline-First:** Automatically calculates precise local sunrise and sunset times. It synchronizes solar data once per day and operates 100% offline via encrypted, resilient local caching.
 * **⚡ Instant Theme Engine (FastSwitch):** Switches instantly upon system startup, sleep wake, or screen unlock—minimizing screen flicker to the absolute minimum for an ultra-smooth transition, applying the target theme before the Windows desktop even finishes loading. Seamlessly updates all open and compatible Windows applications in real time, replicating the official Windows Settings behavior.
-* **🖼️ 4K Wallpaper Gallery:** Discover, customize, and apply stunning high-resolution wallpapers tailored for Light and Dark modes, featuring instant (0ms) local browsing and atomic multi-monitor synchronization.
+* **🖼️ Up to 4K Wallpaper Gallery:** Discover, customize, and apply stunning high-resolution wallpapers (1080p, 2K, and up to 4K) tailored for Light and Dark modes, featuring instant (0ms) local browsing and atomic multi-monitor synchronization.
 * **🔋 True Zero-Impact (0% CPU on Idle):** Built with an event-driven architecture that drops CPU usage strictly to 0% during idle, preserving battery life and leaving system resources completely untouched.
 * **🛡️ Theme State Enforcement & Anti-Tampering:** Safeguards your system registry theme keys, rolling back unauthorized external overrides while offering instant suspension right from the tray menu.
 * **📦 Fully Self-Contained (.NET 10):** Ready to run right out of the box with zero runtime dependencies. Everything the app needs is built-in—just download and launch.
