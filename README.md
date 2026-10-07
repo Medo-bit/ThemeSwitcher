@@ -24,6 +24,14 @@ Engineered for performance and elegance, ThemeSwitcher integrates deeply with Wi
 * **📶 Resilient Network & Auto-Recovery:** Integrates smart three-way network sensing (NCSI/Checkpoints) to distinguish real internet access from local routing, safely scheduling background tasks without UI freezes.
 * **🔄 Built-in In-App Updater:** Check and install new releases seamlessly from inside the app without opening an external browser.
 
+## 📦 Installation
+
+You can install ThemeSwitcher instantly using winget in Windows Terminal (or PowerShell):
+
+```powershell
+winget install Medoo.ThemeSwitcher
+```
+
 ## 💻 System Requirements
 * **OS:** Windows 10 (Version 2004 or later) / Windows 11
 * **Architecture:** x64
