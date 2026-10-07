@@ -4,6 +4,8 @@
 ![C#](https://img.shields.io/badge/Language-C%23-blue?style=for-the-badge&logo=csharp)
 ![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
 
+### 🌓 أداة حديثة لجدولة الوضع الداكن تلقائيًا وتبديل خلفيات 4K لنظام ويندوز 10 و 11
+
 🌐 [النسخة الإنجليزية](README.md)
 
 أداة ويندوز فائقة السرعة وجاهزة للتشغيل مباشرة دون متطلبات مسبقة (Self-Contained)، تقوم بتبديل ثيم النظام بسلاسة بين الوضعين الفاتح (Light) والداكن (Dark) بناءً على أوقات الشروق والغروب المحلية الدقيقة.
