@@ -2,15 +2,23 @@
 
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet)
 ![C#](https://img.shields.io/badge/Language-C%23-blue?style=for-the-badge&logo=csharp)
-![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
+![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
+![Architecture](https://img.shields.io/badge/Architecture-x64-success?style=for-the-badge)
 
-### 🌓 A modern Auto Dark Mode scheduler & 4K wallpaper switcher for Windows 10/11
+### 🌓 A modern, ultra-lightweight Auto Dark Mode scheduler & 4K wallpaper gallery for Windows 10/11
 
 🌐 [Arabic Version](README.ar.md)
 
-A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise local sunrise and sunset times.
+A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise astronomical sunrise and sunset times.
 
-Engineered for performance and elegance, ThemeSwitcher integrates deeply with Windows to provide a native-like experience without the bloat.
+Engineered for performance and visual elegance, ThemeSwitcher integrates directly with native Windows APIs to deliver an instant, system-level experience without background services or resources consumption.
+
+---
+
+<p align="center">
+  <img src="assets/preview.png" alt="ThemeSwitcher Preview" width="100%">
+</p>
+
 
 ## 🚀 Key Features
 
@@ -24,14 +32,20 @@ Engineered for performance and elegance, ThemeSwitcher integrates deeply with Wi
 * **📶 Resilient Network & Auto-Recovery:** Integrates smart three-way network sensing (NCSI/Checkpoints) to distinguish real internet access from local routing, safely scheduling background tasks without UI freezes.
 * **🔄 Built-in In-App Updater:** Check and install new releases seamlessly from inside the app without opening an external browser.
 
-## 📦 Installation
+## 📦 Installation & Updates
 
-You can install ThemeSwitcher instantly using winget in Windows Terminal (or PowerShell):
+You can install or upgrade ThemeSwitcher instantly using **winget** in Windows Terminal (or PowerShell):
 
+# Install
 ```powershell
-winget install Medoo.ThemeSwitcher
+winget install --id Medoo.ThemeSwitcher
+```
+# Update to the latest version
+```powershell
+winget upgrade --id Medoo.ThemeSwitcher
 ```
 
 ## 💻 System Requirements
 * **OS:** Windows 10 (Version 2004 or later) / Windows 11
 * **Architecture:** x64
+* **Privileges:** Standard User (No Administrator rights required for daily operation)
