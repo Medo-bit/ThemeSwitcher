@@ -4,6 +4,8 @@
 ![C#](https://img.shields.io/badge/Language-C%23-blue?style=for-the-badge&logo=csharp)
 ![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
 
+### 🌓 A modern Auto Dark Mode scheduler & 4K wallpaper switcher for Windows 10/11
+
 🌐 [Arabic Version](README.ar.md)
 
 A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise local sunrise and sunset times.
