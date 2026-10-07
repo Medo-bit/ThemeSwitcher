@@ -42,7 +42,7 @@ winget install --id Medoo.ThemeSwitcher
 ```powershell
 winget upgrade --id Medoo.ThemeSwitcher
 ```
-> 💡 **تُفضّل التثبيت اليدوي؟** حمّل حزمة التثبيت المستقلة مباشرة من صفحة [إصدارات GitHub](https://github.com/Medo-bit/ThemeSwitcher/releases/latest).
+> 💡 **تُفضّل التثبيت اليدوي؟** حمّل أحدث حزمة تثبيت مستقلة مباشرةً من صفحة [إصدارات GitHub](https://github.com/Medo-bit/ThemeSwitcher/releases/latest).
 
 ## 💻 متطلبات النظام
 * **نظام التشغيل:** ويندوز 10 (إصدار 2004 أو أحدث) / ويندوز 11
