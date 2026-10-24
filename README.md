@@ -7,13 +7,11 @@
 [![Latest Release](https://img.shields.io/github/v/release/Medo-bit/ThemeSwitcher?style=for-the-badge&label=RELEASE&color=0078D4&logo=github&logoColor=white)](https://github.com/Medo-bit/ThemeSwitcher/releases/latest)
 ![Architecture](https://img.shields.io/badge/Architecture-x64-success?style=for-the-badge)
 
-### 🌓 A modern, ultra-lightweight Auto Dark Mode scheduler & 4K wallpaper gallery for Windows 10/11
+### 🌓 Modern, ultra-lightweight, and 100% offline-first desktop utility
 
 🌐 [Arabic Version](README.ar.md)
 
-A blazing-fast, self-contained Windows utility that seamlessly transitions your system theme between Light and Dark modes based on precise astronomical sunrise and sunset times.
-
-Engineered for performance and visual elegance, ThemeSwitcher integrates directly with native Windows APIs to deliver an instant, system-level experience without background services or resources consumption.
+A blazing-fast, self-contained Windows application that seamlessly transitions your system theme between Light and Dark modes based on precise astronomical sunrise and sunset times.
 
 ---
 
