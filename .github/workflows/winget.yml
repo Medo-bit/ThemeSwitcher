@@ -2,15 +2,65 @@ name: Publish to WinGet
 
 on:
   release:
-    types: [published] # يشتغل تلقائياً أول ما تنشر إصدار جديد
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      test-tag:
+        description: 'Tag to test in Dry-Run mode (no PR will be created)'
+        required: true
+        default: 'v4.2.0'
+        type: string
 
 jobs:
   publish:
     runs-on: windows-latest
+
+    env:
+      PACKAGE_ID: Medoo.ThemeSwitcher
+      INSTALLER_NAME: ThemeSwitcher_Setup.exe
+      ARCH: x64
+
     steps:
-      - name: Submit to WinGet
-        uses: vedantmgoyal9/winget-releaser@v2
+      - name: Verify release asset exists
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = if ("${{ github.event_name }}" -eq "workflow_dispatch") { "${{ inputs.test-tag }}" } else { "${{ github.event.release.tag_name }}" }
+          $assets = gh release view $tag --repo "${{ github.repository }}" --json assets --jq ".assets[].name"
+          if ($assets -notcontains $env:INSTALLER_NAME) {
+            throw "Installer asset '$env:INSTALLER_NAME' not found in release $tag!"
+          }
+          Write-Host "Verified: $env:INSTALLER_NAME exists in release $tag." -ForegroundColor Green
+
+      - name: Install Komac
+        uses: taiki-e/install-action@v2
         with:
-          identifier: Medoo.ThemeSwitcher
-          installers-regex: '\.exe$'
-          token: ${{ secrets.WINGET_TOKEN }}
+          tool: cargo-binstall
+
+      - name: Install Komac binary
+        shell: pwsh
+        run: cargo-binstall komac --no-confirm
+
+      - name: Submit to WinGet
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
+          GH_TOKEN: ${{ secrets.WINGET_TOKEN }}
+        run: |
+          $isManualTest = ("${{ github.event_name }}" -eq "workflow_dispatch")
+          $tag = if ($isManualTest) { "${{ inputs.test-tag }}" } else { "${{ github.event.release.tag_name }}" }
+          $version = $tag.TrimStart("v")
+          $url = "https://github.com/${{ github.repository }}/releases/download/$tag/$env:INSTALLER_NAME|$env:ARCH"
+
+          Write-Host "Tag: $tag | Version: $version | Mode: $(if ($isManualTest) {'DRY-RUN (Test Only)'} else {'LIVE SUBMIT'})"
+          Write-Host "Installer URL: $url"
+
+          if ($isManualTest) {
+            # وضع الاختبار الآمن: يولد الملفات ويتأكد من صيغة |x64 بدون رفع PR
+            komac update $env:PACKAGE_ID --version $version --urls "$url" --dry-run
+          } else {
+            # الوضع الرسمي التلقائي عند نشر Release جديد
+            komac sync-fork
+            komac update $env:PACKAGE_ID --version $version --urls "$url" --submit
+          }
