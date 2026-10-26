@@ -85,8 +85,7 @@ jobs:
           filename: winget-cdn.json
           label: WinGet
           message: ${{ steps.get_tag.outputs.tag }}
-          color: 0078D6
-          namedLogo: windows
+          color: 00A4EF
           cacheSeconds: 300
 
       - name: Wait for Shields.io Sync & Purge GitHub Camo Cache
