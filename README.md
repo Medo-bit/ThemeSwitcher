@@ -3,7 +3,7 @@
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet)
 ![C#](https://img.shields.io/badge/Language-C%23-blue?style=for-the-badge&logo=csharp)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078d4?style=for-the-badge&logo=windows)
-[![WinGet Package](https://img.shields.io/winget/v/Medoo.ThemeSwitcher?style=for-the-badge&label=WINGET&color=00A4EF&logo=windows-terminal&logoColor=white)](https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Medoo/ThemeSwitcher)
+[![WinGet](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Medo-bit/054b1958bd619172448d0e730de0cb47/raw/winget-cdn.json&style=for-the-badge)](https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Medoo/ThemeSwitcher)
 [![Latest Release](https://img.shields.io/github/v/release/Medo-bit/ThemeSwitcher?style=for-the-badge&label=RELEASE&color=0078D4&logo=github&logoColor=white)](https://github.com/Medo-bit/ThemeSwitcher/releases/latest)
 ![Architecture](https://img.shields.io/badge/Architecture-x64-success?style=for-the-badge)
 
