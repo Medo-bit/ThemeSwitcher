@@ -3,35 +3,37 @@ name: Publish to WinGet
 on:
   release:
     types: [published]
+  # 👇 هذا هو الـ Trigger الخارجي الذي يشتغل فور وصول إشعار انتهاء Azure CDN
+  repository_dispatch:
+    types: [winget-cdn-published]
   workflow_dispatch:
     inputs:
       test-tag:
-        description: 'Tag to test in Dry-Run mode (no PR will be created)'
+        description: 'Tag to update badge manually'
         required: true
-        default: 'v4.2.0'
+        default: 'v4.2.1'
         type: string
 
 jobs:
+  # الوظيفة الأولى: تشتغل فقط عند نشر Release جديد (تخلص في 15 ثانية وتقفل)
   publish:
+    if: github.event_name == 'release'
     runs-on: windows-latest
-
     env:
       PACKAGE_ID: Medoo.ThemeSwitcher
       INSTALLER_NAME: ThemeSwitcher_Setup.exe
       ARCH: x64
-
     steps:
       - name: Verify release asset exists
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $tag = if ("${{ github.event_name }}" -eq "workflow_dispatch") { "${{ inputs.test-tag }}" } else { "${{ github.event.release.tag_name }}" }
+          $tag = "${{ github.event.release.tag_name }}"
           $assets = gh release view $tag --repo "${{ github.repository }}" --json assets --jq ".assets[].name"
           if ($assets -notcontains $env:INSTALLER_NAME) {
             throw "Installer asset '$env:INSTALLER_NAME' not found in release $tag!"
           }
-          Write-Host "Verified: $env:INSTALLER_NAME exists in release $tag." -ForegroundColor Green
 
       - name: Install Komac
         uses: taiki-e/install-action@v2
@@ -48,19 +50,62 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
           GH_TOKEN: ${{ secrets.WINGET_TOKEN }}
         run: |
-          $isManualTest = ("${{ github.event_name }}" -eq "workflow_dispatch")
-          $tag = if ($isManualTest) { "${{ inputs.test-tag }}" } else { "${{ github.event.release.tag_name }}" }
+          $tag = "${{ github.event.release.tag_name }}"
           $version = $tag.TrimStart("v")
           $url = "https://github.com/${{ github.repository }}/releases/download/$tag/$env:INSTALLER_NAME|$env:ARCH"
+          komac sync-fork
+          komac update $env:PACKAGE_ID --version $version --urls "$url" --submit
 
-          Write-Host "Tag: $tag | Version: $version | Mode: $(if ($isManualTest) {'DRY-RUN (Test Only)'} else {'LIVE SUBMIT'})"
-          Write-Host "Installer URL: $url"
-
-          if ($isManualTest) {
-            # وضع الاختبار الآمن: يولد الملفات ويتأكد من صيغة |x64 بدون رفع PR
-            komac update $env:PACKAGE_ID --version $version --urls "$url" --dry-run
+  # الوظيفة الثانية: تشتغل كـ Trigger فقط عندما يكتمل النشر على Azure CDN! (سريعة جداً على سيرفر Linux)
+  update-badge:
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      GIST_ID: 054b1958bd619172448d0e730de0cb47 # 👈 ضع رقم الـ Gist هنا
+    steps:
+      - name: Get Latest Release Tag
+        id: get_tag
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $tag = "${{ inputs.test-tag }}"
           } else {
-            # الوضع الرسمي التلقائي عند نشر Release جديد
-            komac sync-fork
-            komac update $env:PACKAGE_ID --version $version --urls "$url" --submit
+            $tag = gh release view --repo "${{ github.repository }}" --json tagName --jq ".tagName"
+          }
+          Write-Host "Target Tag for Badge: $tag"
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+
+      - name: Update WinGet Badge via Gist
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.WINGET_TOKEN }}
+          gistID: ${{ env.GIST_ID }}
+          filename: winget-cdn.json
+          label: WinGet
+          message: ${{ steps.get_tag.outputs.tag }}
+          color: 0078D6
+          namedLogo: windows
+          cacheSeconds: 300
+
+      - name: Wait for Shields.io Sync & Purge GitHub Camo Cache
+        shell: pwsh
+        run: |
+          $tag = "${{ steps.get_tag.outputs.tag }}"
+          $gistRawUrl = "https://gist.githubusercontent.com/${{ github.repository_owner }}/$env:GIST_ID/raw/winget-cdn.json"
+          $shieldsUrl = "https://img.shields.io/endpoint?url=$gistRawUrl"
+
+          for ($i = 1; $i -le 20; $i++) {
+            try {
+              $svg = (Invoke-WebRequest -Uri $shieldsUrl -UseBasicParsing).Content
+              if ($svg -match [regex]::Escape($tag)) { break }
+            } catch {}
+            Start-Sleep -Seconds 15
+          }
+
+          $repoPage = Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}" -UseBasicParsing
+          $camoUrls = [regex]::Matches($repoPage.Content, 'https://camo\.githubusercontent\.com/[a-f0-9]+/[a-f0-9]+') | ForEach-Object { $_.Value } | Select-Object -Unique
+          foreach ($url in $camoUrls) {
+            try { Invoke-WebRequest -Uri $url -Method "PURGE" -UseBasicParsing | Out-Null } catch {}
           }
